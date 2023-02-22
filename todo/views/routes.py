@@ -2,9 +2,11 @@ from flask import Blueprint, jsonify
 
 api = Blueprint('api', __name__, url_prefix='/api/v1')
 
+
 @api.route('/health')
 def health():
     return jsonify({"status": "ok"})
+
 
 @api.route('/todos', methods=['GET'])
 def get_todos():
@@ -18,6 +20,7 @@ def get_todos():
         "updated_at": "2023-02-20T00:00:00"
     }])
 
+
 @api.route('/todos/<int:id>', methods=['GET'])
 def get_todo(id):
     return jsonify({
@@ -29,6 +32,7 @@ def get_todo(id):
         "created_at": "2023-02-20T00:00:00",
         "updated_at": "2023-02-20T00:00:00"
     })
+
 
 @api.route('/todos', methods=['POST'])
 def create_todo():
@@ -55,6 +59,7 @@ def update_todo(id):
         "updated_at": "2023-02-20T00:00:00"
     })
 
+
 @api.route('/todos/<int:id>', methods=['DELETE'])
 def delete_todo(id):
     return jsonify({
@@ -66,3 +71,4 @@ def delete_todo(id):
         "created_at": "2023-02-20T00:00:00",
         "updated_at": "2023-02-20T00:00:00"
     })
+
