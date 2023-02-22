@@ -4,9 +4,9 @@ api = Blueprint('api', __name__, url_prefix='/api/v1')
 
 @api.route('/health')
 def health():
-    return "ok"
+    return jsonify({"status": "ok"})
 
-@api.route('/todos', methods=['GET'])
+@api.route('/todo', methods=['GET'])
 def get_todos():
     return jsonify([{
         "id": 1,
